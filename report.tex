@@ -1,0 +1,1017 @@
+
+%% bare_conf.tex
+%% V1.3
+%% 2007/01/11
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.7 or later) with an IEEE conference paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%
+%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
+%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex
+%%*************************************************************************
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. IEEE's font choices can trigger bugs that do  ***
+% *** not appear when using other class files.                            ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+% Note that the a4paper option is mainly intended so that authors in
+% countries using A4 can easily print to A4 and see how their papers will
+% look in print - the typesetting of the document will not typically be
+% affected with changes in paper size (but the bottom and side margins will).
+% Use the testflow package mentioned above to verify correct handling of
+% both paper sizes by the user's LaTeX system.
+%
+% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
+% should be used if it is desired that the figures are to be displayed in
+% draft mode.
+%
+\documentclass[a4paper,conference]{IEEEtran}
+% Add the compsoc option for Computer Society conferences.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 4.0 (2003-05-27) and later if using hyperref.sty. cite.sty does
+% not currently provide for hyperlinked citations.
+% The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
+% The documentation is contained in the cite.sty file itself.
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{breqn}
+\usepackage{graphicx}
+\usepackage{siunitx}
+
+
+\DeclareMathOperator*{\argmin}{\arg\min}
+\DeclareMathOperator*{\argmax}{\arg\max}
+\DeclareMathOperator*{\onehot}{one\,hot}
+\def\mathbi#1{\textbf{\em #1}}
+\graphicspath{images}
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at: 
+% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found as epslatex.ps or
+% epslatex.pdf at: http://www.ctan.org/tex-archive/info/
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage[cmex10]{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics. If using
+% it, be sure to load this package with the cmex10 option to ensure that
+% only type 1 fonts will utilized at all point sizes. Without this option,
+% it is possible that some math symbols, particularly those within
+% footnotes, will be rendered in bitmap form which will result in a
+% document that can not be IEEE Xplore compliant!
+%
+% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
+% There is also a support site at:
+% http://algorithms.berlios.de/index.html
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/tools/
+
+
+%\usepackage{mdwmath}
+%\usepackage{mdwtab}
+% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
+% especially mdwmath.sty and mdwtab.sty which are used to format equations
+% and tables, respectively. The MDWtools set is already installed on most
+% LaTeX systems. The lastest version and documentation is available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools/
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+%\usepackage{eqparbox}
+% Also of notable interest is Scott Pakin's eqparbox package for creating
+% (automatically sized) equal width boxes - aka "natural width parboxes".
+% Available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/eqparbox/
+
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\usepackage[tight,footnotesize]{subfigure}
+% subfigure.sty was written by Steven Douglas Cochran. This package makes it
+% easy to put subfigures in your figures. e.g., "Figure 1a and 1b". For IEEE
+% work, it is a good idea to load it with the tight package option to reduce
+% the amount of white space around the subfigures. subfigure.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/subfigure/
+% subfigure.sty has been superceeded by subfig.sty.
+
+
+
+%\usepackage[caption=false]{caption}
+%\usepackage[font=footnotesize]{subfig}
+% subfig.sty, also written by Steven Douglas Cochran, is the modern
+% replacement for subfigure.sty. However, subfig.sty requires and
+% automatically loads Axel Sommerfeldt's caption.sty which will override
+% IEEEtran.cls handling of captions and this will result in nonIEEE style
+% figure/table captions. To prevent this problem, be sure and preload
+% caption.sty with its "caption=false" package option. This is will preserve
+% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later 
+% (recommended due to many improvements over 1.2) of subfig.sty supports
+% the caption=false option directly:
+%\usepackage[caption=false,font=footnotesize]{subfig}
+%
+% The latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
+% The latest version and documentation of caption.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure. The latest version and documentation can be found at:
+% http://www.ctan.org/tex-archive/macros/latex/base/
+
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
+% Documentation is contained in the stfloats.sty comments as well as in the
+% presfull.pdf file. Do not use the stfloats baselinefloat ability as IEEE
+% does not allow \baselineskip to stretch. Authors submitting work to the
+% IEEE should note that IEEE rarely uses double column equations and
+% that authors should try to avoid such use. Do not be tempted to use the
+% cuted.sty or midfloat.sty packages (also by Sigitas Tolusis) as IEEE does
+% not format its papers in such ways.
+
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/misc/
+% Read the url.sty source comments for usage information. Basically,
+% \url{my_url_here}.
+
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{The State of GANs for \\Natural Language Generation}
+
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{\IEEEauthorblockN{Markus Roth}
+\IEEEauthorblockA{Swiss Joint Master of Science in Computer Science\\
+University of Berne, Switzerland\\
+Email: markus.roth1@students.unibe.ch}}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+% 
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3}, 
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+%\boldmath
+Generative adversarial networks (GANs) - consisting of a generative and a discriminative network trained competitively - have been tremendously successful in the domain of computer vision. The generative network tries to generate synthetic data samples that are indistinguishable from a given set of real data samples. The discriminative network tries to correctly classify real data samples and synthetic data samples. This has lead to the unsupervised generation of synthetic images that are difficult to tell apart from photographs even for a human observer.
+
+GANs work by back-propagating the gradients from the discriminator to the generator in a gradient descent optimization process. After each synthetic sample is generated, the discriminator gives it a classification score. It then tells the generator the gradients of its weights respective to the target of classifying it as as real. The generator then updates its weights accordingly, leading to a slightly more convincing sample generated next time.
+
+There is a large research interest in applying GANs to generating natural language. Two fundamental problems with this domain remain unsolved: Firstly, the choice of a word or letter by the generator is discrete, so back-propagation from the discriminator to the generator becomes impossible. Secondly, the space of natural language is sparse, so gradual improvement via gradient descent will not work.
+
+This paper gives an overview of the current research trends, approaches, metrics and successes of trying to solve or circumvent these problems. It also includes the description of a prototype by the author that tries a novel approach in solving them.
+\end{abstract}
+% IEEEtran.cls defaults to using nonbold math in the Abstract.
+% This preserves the distinction between vectors and scalars. However,
+% if the conference you are submitting to favors bold math in the abstract,
+% then you can use LaTeX's standard command \boldmath at the very start
+% of the abstract to achieve this. Many IEEE journals/conferences frown on
+% math in the abstract anyway.
+
+% no keywords
+
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+% no \IEEEPARstart
+Conversational agents like Chatbots, voice-controlled smart home devices and mobile phones require the generation of convincing utterances of natural language. To create the feeling of real conversation, these generated utterances should have a high variation and mimic human-generated utterances as well as possible. Currently, this is an unsolved problem.
+
+In the field of computer vision, the GAN approach to a similar problem has experienced very fast-paced success. See figure \ref{img:nvidia-gan-example} for an example. The research community is eager to apply this success to the domain of natural language generation in the hopes of achieving similar success.
+
+While this success has yet to be achieved, quite a few interesting approaches are being tried. This is in part possible due to rapid advancement in tooling and hardware as well as the availability of large data sets, making it fairly easy to experiment with GANs. Additionally, since the invention of GANs in 2014, numerous mathematical improvements on them have been proposed.
+
+Structure: This paper will first detail the general structure and core mathematics behind a typical GAN in section II, then describe the problems of applying them to natural language generation in section III. Four approaches will then be described in detail to overcome these problems: SeqGAN in section VI, Gumbel-softmax  in section VII, BGAN in section VIII and MaliGAN in section IX. My own prototype using word embeddings is described in section X, after which future work in section XI and conclusions in section XII conclude the paper.
+
+\begin{figure}[thpb]
+      \centering
+      \includegraphics[width=\linewidth]{images/nvidia-gan-example.png}
+      \caption{Images generated by a GAN. The CelebA data set was used as a ground truth. For a human observer, it is not immediately obvious that these images are synthetic. Image taken from \cite{c35}.}
+      \label{img:nvidia-gan-example}
+   \end{figure}
+
+
+\section{GENERATIVE ADVERSARIAL NETWORKS}
+
+Say we have some natural phenomenon that produces data samples $\mathbi{x}_1,...,\mathbi{x}_n$ according to some true probability distribution $p_{data}(x)$. The goal of a generative model can be defined as learning a probability distribution $\hat{p}(x)$ so that the Kullback-Leibler divergence $D_{KL}(\hat{p}||p)$ between the learned probability distribution $\hat{p}$ and the true probability distribution $p$ is minimal \cite{c1}. 
+
+Formally, a generative model can be defined as a generator function $G$ with parameters $\theta^{(G)}$ that can generate a synthetic data sample x by mapping a latent input variable $\mathbi{z}$ to the data sample space:
+
+\begin{dmath}
+\mathbi{x} = G(\mathbi{z}; \mathbi{$\theta$}^{(G)}) 
+\end{dmath}
+
+Since $p_{data}$ is unknown for real-world phenomenon, $D_{KL}(\hat{p}||p)$ cannot be empirically measured. To measure the quality $G$ we thus need some way of differentiating between real and synthetic data samples.
+
+The idea of a generative adversarial network (GAN) is to train a second, discriminative model that learns to classify data samples accordingly, and in turn to use this classification as a feedback to improve the generator function $G$.
+
+The discriminator can be described as a scalar function $D$ that takes a data sample $x$ and a parameter $\theta^{(D)}$ and outputs the probability $q$ that $x$ is a real data sample rather than a synthetic data sample \cite{c2}:
+
+\begin{dmath}
+q = D(\mathbi{x}; \mathbi{$\theta$}^{(D)})
+\end{dmath}
+
+D and G are trained in parallel. D is trained to maximize the probability of categorizing a given data sample x correctly, and G is trained to maximize $log(1-D(G(x)))$, the chance of D classifying the output of G as real data. This leads to G and D competing in a minimax game with value function V(G, D):
+
+\begin{dmath}
+\min_{G} \max_{D} V(D, G) = \\
+\mathbb{E}_{\mathbi{x} \sim p_{data}}(x)[log (D(\mathbi{x}))] + \mathbb{E}_{\mathbi{z} \sim p_{z}}(z)[log (1-D(G(\mathbi{z})))]
+\end{dmath}
+
+Applying stochastic gradient descent in an alternating fashion to $G$ and $D$ to optimize $\theta^{(G)}$ and $\theta^{(D)}$ converges on the global optimum of $\hat{p} = p$ if $\max_{D} V(G, D)$ is convex in $\theta^{(G)}$. In the common case of using neural networks for $G$ and $D$ $\max_{D} V(G, D)$ is not convex, and thus gradient descent is not guaranteed to reach an equilibrium, but works well in practice \cite{c3}.
+An architecture overview of a GAN can be seen in figure \ref{fig:gan-architecture}.
+
+
+\begin{figure}[thpb]
+      \centering
+      \includegraphics[width=\linewidth]{images/gan_architecture.png}
+      \caption{Architecture of a generative adversarial network (GAN).  A generator $G$ samples from a latent distribution $p_z$ to generate a fake sample $p$. The discriminator $D$ takes fake and real samples and outputs the probability of the sample being real. $G$ and $D$ are trained together. Image taken from https://arnabgho.github.io/MADGAN.}
+      \label{fig:gan-architecture}
+   \end{figure}
+
+
+\section{SEQUENCES IN SPARSE SPACES}
+
+While GANs work very well for continuous, dense data sample spaces like images, there are two main reasons they are not immediately applicable to generating text: Differentiability and sparsity of the data sample space.
+
+Sparsity is a problem for sequences of alphanumeric characters or word vectors representing natural language because slightly improving a sequence to be more likely to fool the discriminator is not meaningful. Changing a single letter in a word or word in a sentence to its somehow defined neighbor does not result in a high probability of generating a new sequence that is both syntactically and semantically correct as well as actually better at deceiving the discriminator. Moving from one valid sequence to another valid one with a higher chance of fooling the discriminator will often require a large change in parameters that cannot be achieved by gradient descent \cite{c2}. Recently, word embeddings \cite{c5} have become a popular way of addressing this issue.
+
+Differentiability is a more fundamental problem. During training of a minibatch of $m$ values sampled from the latent variable $\mathbi{z}$, $\theta^{(G)}$ gets updated with the gradient
+
+\begin{dmath}
+\nabla_{\theta^{(G)}} \frac{1}{m} \sum_{i=1}^{m} log (1-D(G(\mathbi{z}^{(i)}))).
+\end{dmath}
+
+Using this gradient to improve $\theta^{(G)}$ requires the composition of $D$ and $G$ to be fully differentiable. In the case of $G$ generating a sequence of discrete values, this is not the case. In the simplest approach, after a fully differentiable network with continuous outputs a step function is appended to the architecture to select one of the candidate tokens to add to the output sequence. The gradient of such a step function will be 0 almost everywhere due to its discrete nature \cite{c4}. Without a differentiable function that is able to generate discrete tokens, GANs remain non-applicable to sequence generation.
+
+\section{GANS GENERATING SEQUENCES}
+
+Various authors have tried to find ways to find differentiable functions for outputting discrete sequences so that GANs can be used for sequence generation. In the following sections a selection of these approaches are presented, selected by their applicability to be used in GANs to generate language. 
+
+The field of adversarial training applied to sequence generation is still young and immature. Many cited papers are only available as arXiv pre-prints and have yet to be peer-reviewed. None of the approaches analyzed in this paper are able to generate text that is indistinguishable from natural language even at a glance. 
+
+\section{EVALUATION}
+
+Evaluating the quality of generated natural language is not trivial. Many papers use BLEU scores \cite{c11}, a measure originally conceived to measure the quality of machine translations. It is comparatively simple: It compares the distribution on n-grams of tokens in generated text with their distribution in real text. It should be noted that BLEU does not include any way of measuring semantic content. Even with a perfect BLEU score, generated text will not necessarily make any sense to a reader.
+
+\section{Approach I: SeqGAN}
+
+\subsection{Context}
+
+The paper "SeqGAN: Sequence Generative Adversarial Nets with Policy Gradient" \cite{c7} was the first formalized approach at applying GANs to text. First pre-published to arXiv in September 2016, it was later accepted to AAAI 2017. The experiments were done in TensorFlow \cite{c6} with fully published source code\footnote{https://github.com/LantaoYu/SeqGAN}.
+
+   \begin{figure}[thpb]
+      \centering
+      \includegraphics[width=\linewidth]{images/seqgan.png}
+      \caption{Architecture of the SeqGAN model. The generator G decides on the next token of a partially completed sequence by sampling from a policy and using Monte Carlo search to update the policy gradient via discriminator response on the fully completed sequence. Image taken from \cite{c7}.}
+      \label{fig:seqgan}
+   \end{figure}
+
+\subsection{Contribution}
+SeqGAN contributes two ideas: Solving the differentiability problem by using the REINFORCE algorithm, and updating intermediate state-action policies from the discriminator result on completed sequences by using a Monte Carlo search.
+
+The paper restates a GAN as a reinforcement learning problem, where the generator $G$ is a state-action policy $G_\theta(y_t|Y_{1:t-1})$ that generates the current token $y_t$ based on a partially generated sequence $Y_{1:t-1}$. The objective of the generator is, starting from a start state $s_0$, to maximize its expected end reward
+
+\begin{dmath}
+J(\theta) = \mathbb{E}[R_T|s_0, \theta] = \sum_{y_1 \in \mathcal{Y}}G_\theta(y_1|s_0)*Q_{D^{\theta^{(D)}}}^{G^{\theta^{(G)}}}(s_0, y_1)
+\end{dmath}
+
+where $R_T$ is the expected end reward for the completed sequence $Y_{1:T}$ and $\mathcal{Y}$ is the alphabet of all possible tokens. $Q_{D}^{G}(s, a)$ is the expected accumulative reward from discriminator $D$ when starting from state $s$, taking action $a$ and then continuing with policy $G$. An overview of the architecture can be seen in figure \ref{fig:seqgan}.
+
+Intuitively, the generator in a SeqGAN can be seen as a probabilistic function that will give a probability distribution for every possible next token given a partially completed sequence. Since the resulting output is no longer a discrete token but a probability distribution, this function is fully differentiable and can thus be trained by the gradient output from the generator. This is the core idea behind the REINFORCE algorithm \cite{c8}.
+
+
+Thus the SeqGAN paper proposes approximating the cumulative award of the complete sequence $Q_{D}^{G}(s, a)$ using a N-time Monte Carlo search sampling over the unknown next $T - t$ tokens using the GAN generator $G^{\theta^{(G)}}$:
+
+\begin{dmath}
+{Y_{1:T}^{1}},...,Y_{1:T}^{N} = MC^{G^{\theta^{(G)}}}(T_{1:t};N)
+\end{dmath}
+
+In a $N$-time Monte Carlo search, the sequence is completed probabilistically $N$ times according to the current generator and the resulting sequence is then fed into the discriminator to obtain the reward. The expected end reward for the completed sequence $R_T$ then becomes
+
+\begin{dmath}
+Q_{D^{\theta^{(D)}}}^{G^{\theta^{(G)}}}(Y_{1:t-1}, y_t) = 
+\frac{1}{N}\sum_{n=1}^{N}D^{\theta^{(D)}}Y_{1:T}^n
+\end{dmath}
+
+where 
+
+\begin{dmath}
+{Y_{1:T}^n \in MC^{G^{\theta^{(G)}}}(Y_{1:t}; N)}
+\end{dmath}
+
+for all steps until the last step where $t = T$ and thus
+
+\begin{dmath}
+Q_{D^{\theta^{(D)}}}^{G^{\theta^{(G)}}}(Y_{1:T-1}, y_T) = 
+D^{\theta^{(D)}}(Y_{1:T}).
+\end{dmath}
+
+In summary, SeqGAN overcomes the gradient problem by updating the probabilistic policy directly using the policy gradient coming from the discriminator, and uses Monte Carlo unrolling to consider estimated rewards for multiple possible completed sequences at any particular generation step.
+
+\subsection{Architecture}
+SeqGAN uses a recurrent neural network, specifically a long short-term memory network (LSTM) \cite{c9} as a sequence and a convolutional neural network (CNN) \cite{c10} as a sequence discriminator. There is no in-depth discussion on network architecture details in the paper. 
+
+\subsection{Scenarios}
+An interesting part of the SeqGAN paper is a novel evaluation metric. To measure the quality of the learned generator, they use randomly initialized target LSTM called the oracle that generates the real samples. Their generator then learns to be as close as possible to this oracle LSTM, and their differences can be precisely measured by comparing their probability distributions for generated sequences. 
+
+Additionally, the SeqGAN paper uses three real-world scenarios: Generating speeches of Barack Obama, Chinese Poems and folk tunes. For all three scenarios, evaluation uses the BLEU metric.
+
+\subsection{Results}
+SeqGAN is compared to four baseline methods: Random token generation, the generator LSTM trained in a non-adversarial fashion with maximum likelihood estimation, scheduled sampling \cite{c12} and using PG-BLEU rather than a trained discriminator in Monte Carlo search. They conclude that SeqGAN performs significantly better than the other methods. 
+
+The SeqGAN paper does not show any generated example sentences.
+
+\section{Approach II: GUMBEL-SOFTMAX}
+\subsection{Context}
+The paper "GANs for Sequences of Discrete Elements
+with the Gumbel-softmax Distribution" \cite{c13} was uploaded to arXiv in November 2016. It was accepted as a workshop paper to NIPS 2016. No source code was published, and no information about the technology or frameworks used was included in the paper. 
+
+The paper presenting the underlying idea of the Gumbel-softmax estimator \cite{c14} was accepted as a poster to ICLR 2017.
+
+\subsection{Contribution}
+The GumbelGAN paper \cite{c13} is a pretty straightforward application of \cite{c14} to the area of GAN: Use of the smooth Gumbel-softmax estimator as the last layer in the generator network for token sampling as to enable back-propagation from the discriminator to the generator.
+
+A natural way to model the last layer of a generative network is to have an output vector of the same size as the alphabet of possible tokens $\mathcal{Y}$, which activations can be interpreted as unnormalized probabilities of that token being generated next. This output vector is often normalized with the softmax function
+
+\begin{dmath}
+\big[ \text{softmax}(h)\big]_i = \frac{exp(h_i)}{\sum_{j=1}^Kexp(h_j)}, {\text{for i = 1,...,d}}
+\end{dmath}
+
+such that the output of the softmax can be treated as a probability distribution over the alphabet. This categorical distribution can be sampled to get the next token in the output sequence. This sampling operation is not differentiable and cannot be passed when back-propagating the gradient from the discriminator.
+
+The Gumbel-max trick \cite{c15} is that sampling from a categorical distribution with class probabilities $\pi$ has an equal distribution as
+
+\begin{dmath}
+z = \onehot{}(\argmax_i[g_i + \log \pi_i])
+\end{dmath}
+
+where $g_i,...,g_k$ are independent samples drawn from Gumbel(0, 1), which in turn can be sampled by drawing u $\sim$ Uniform(0, 1) and computing $g = − log(− log(u))$.
+
+While Gumbel-max sampling is still not differentiable due to the hard choice in argmax, it has been proposed \cite{c14} to replace the hard argmax with a continuous and differentiable softmax to achieve tractability. Hereby we get the Gumbel-softmax operator to generate a k-dimensional sample vector $\mathbi{y}$ from a probability distribution $\pi$
+
+\begin{dmath}
+y_i = \frac{\exp((\log(\pi_i) + g_i)/\tau}{\sum_{j=1}^k\exp((\log(\pi_j)+g_j)/\tau} \text{for i = 1,...,k}.
+\end{dmath}
+
+As the parameter $\tau$ approaches zero, Gumbel-softmax approaches a one-hot encoding. As $\tau$ increases, Gumbel-softmax approaches a fully random sampling where the probability of all tokes is equal (see figure \ref{fig:gumbel-temp}). For this reason, $\tau$ is called the temperature of the distribution.
+
+   \begin{figure}[thpb]
+      \centering
+      \includegraphics[width=\linewidth]{images/gumbel-temperature.png}
+      \caption{Visualization of the effect of temperature on the Gumbel-softmax distribution. At low temperature, Gumbel-softmax is close to one-hot (accurate but high gradient variance), at high temperatures it becomes a random choice (low gradient variance but smooth). Image taken from \cite{c14}.}
+      \label{fig:gumbel-temp}
+   \end{figure}
+   
+The Gumbel-softmax distribution is smooth and has well-defined gradients for all values, so it can be used as a last layer for a generator network and be back-propagated through. 
+
+The main advantage of the Gumbel-softmax distribution is temperature annealing. Learning can be started with a high temperature, where samples are smooth but the variance in gradients is small, and then annealed over time to a temperature approaching zero, where samples are close to one-hot but gradients have a high variance \cite{c14}.
+
+In summary, the Gumbel-softmax estimator enables back-propagation from the discriminator to the generator by replacing the sampling hard choice with a differentiable operation. This Gumbel-softmax operation interpolates between a one-hot encoding and a fully random choice by use of a temperature variable, which in turn can be annealed in training to achieve stability.
+   
+\subsection{Architecture}
+The GumbelGAN paper \cite{c13} uses LSTM recurrent networks \cite{c9} as both generator and discriminator. Both networks are optimized using ADAM \cite{c16} with a fixed learning rate of $1e-3$ and a minibatch-size of 200. Temperature was linearly annealed from $\tau = 5$ at the beginning of training to $\tau = 1$ at epoch 10'000, then kept constant until the end of training.
+
+It is interesting to note that during training, the real data samples were transformed from one-hot encodings to distributions with p = 0.9 at the actual value and equal probability otherwise. Then the Gumbel-softmax estimator was used to transform the real value into a probabilistic vector with a similar distribution as the synthetic data samples to use during training.
+
+   \begin{figure}[thpb]
+      \centering
+      \includegraphics[height=\linewidth]{images/gumbel-results.png}
+      \caption{A comparison between sampled sequences from an LSTM trained with maximum likelihood estimation (left) and the generator of the Humbel-softmax-GAN (right). Spaces are because input sequences were padded with spaces if shorter than 12 characters. Image taken from \cite{c14}.}
+      \label{figurelabel}
+      \label{fig:gumbel-results}
+   \end{figure}
+
+\subsection{Scenarios}
+In the GumbelGAN paper, a single experiment is performed. They authors create a synthetic language using a context-free grammar, then train their generator LSTM go generate sequences that are as similar as possible to the sequences generated by the context-free grammar. 
+
+The language is very simple. It consists of the five characters "x", "+", "-", "*" and "/". These characters are combined by the context-free grammar for form simple mathematical operations with a single variable, for example "x/x+x-x" or "x/x+x-x∗x". Formally, the generation rules, separated by $||$, are as as follows:
+
+\begin{dmath}
+S \rightarrow x || S+S || S-S || S \star S || S/S
+\end{dmath}
+
+Thus the learning target of the generator LSTM using Gumbel-softmax annealing is to learn the rules of the context-free grammar and generate sequences indistinguishable from the ones generated by the context-free grammar. No experiments with sequences more close to natural language are discussed.
+
+\subsection{Results}
+
+Even for the exceedingly simple approximation of natural language, the model does not learn the target context-free grammar. The authors admit that a recurrent neural network trained with maximum-likelihood estimation achieves a much better result for their scenario. Results can be seen in \ref{fig:gumbel-results}.
+
+The paper does not include any comparison with other relevant generative methods such as SeqGAN \cite{c7} or scheduled sampling \cite{c12}.
+
+\section{Approach III: BGAN}
+\subsection{Context}
+The paper "Boundary-Seeking Generative Adversarial Networks" \cite{c17} was uploaded to arXiv in February 2017. As of yet, it has not been accepted for publication. The experiments were done in Lasagne \cite{c18} built on Theano \cite{c19} with fully published source code\footnote{https://github.com/rdevon/BGAN}. 
+
+\subsection{Contribution}
+The idea behind the boundary-seeking GAN is a new loss function for the generator. Intuitively, rather than the generator trying to get the discriminator to assign the highest possible probability that a generated sample is real, it tries to generate samples where the discriminator is as uncertain as possible about whether the sample is real or generated. This is legitimized by arguing that for a perfect generator, the discriminator would be unable to discriminate between real and generated samples, so the ideal generated sample lies at the boundary between the discriminator classifying it as real or generated.
+
+The idea behind BGAN is that a discriminator, which is a standard probabilistic binary classifier, is easier to train than a generator, which can be required to output complex data samples and has a continuously shifting objective function. 
+
+In addition to this new loss function, BGAN uses reinforcement learning in a similar fashion to SeqGAN. BGAN uses the discriminator output as importance weights, and can overcome the differentiability barrier of the discriminator output using importance sampling.
+
+\subsection{Architecture}
+Both generator and discriminator are deep convolutional networks following the improved WGAN paper \cite{c21}. Batch normalization \cite{c22} was used for the generator, but not the discriminator. 
+
+The model was optimized using ADAM \cite{c16} using exponential decay rates of $\beta_1 = 0.95$ and $\beta_2 = 0.5$. Three learning rates were compared: \num{1e-4}, \num{1e-5}, and \num{1e-6}. Discriminator and Generator were trained in an alternating fashion with each network being trained the same amount per turn. $M$, the number of samples per generated sample used to get the normalized weights, was set to 20.
+
+\subsection{Scenarios}
+The authors use the billion-word dataset \cite{c20}, while only sentences in the dataset of at least 32 characters were considered, and these sentences were truncated to 32 characters. Sequences of 32 characters were generated. Examples of generated sequences can be seen in \ref{fig:bgan-results}.
+
+   \begin{figure}[thpb]
+      \centering
+      \includegraphics[height=\linewidth]{images/bgan-results-vert.png}
+      \caption{Results of generating 32 character sequences using BGAN training from the 1 billion word dataset. Image taken from \cite{c17} and re-formatted.}
+      \label{fig:bgan-results}
+   \end{figure}
+
+\subsection{Results}
+No quantitative evaluation of the generated sequences was attempted. The authors claim to have achieved the best qualitative results to date "without any continuous relaxation" and being "trained from scratch without any pre-training and without any auxiliary supervised loss". They acknowledge that recurrent neural networks trained with maximum likelihood estimation achieve much better results.
+
+It is interesting to note that the authors attempted to compare their BGAN with the Gumbel-softmax approach, but were unable to get Gumbel-softmax to converge in their scenario. Apart from that approach, no comparisons with other methods were attempted.
+
+\section{Approach IV: MaliGAN}
+\subsection{Context}
+The paper "Maximum-Likelihood Augmented Discrete Generative Adversarial Networks" \cite{c23} was uploaded to arXiv in February 2017. As of yet, it has not been accepted for publication. Source code for the experiments was not released, and no information about the used frameworks or programming languages is included in the paper. 
+
+\subsection{Contribution}
+When training a generative model in a non-adversarial fashion, typically maximum likelihood estimation (MLE) is used as an objective function. MLE can be used to find the parameters $\theta^{(D)}$ of the generator that give the highest probability of the real data samples $x$ to be generated. The fixed MLE objective function works well in training auto-regressive methods such as the standard LSTM \cite{c9}, and leads to stable training. 
+
+The problem with MLE is that the model can only learn from real samples, it cannot learn from it's own generated output. This means that when a network generates a partial sequence during inference that does not exist in a real sample, it has no way of knowing how to continue the sequence.
+
+GAN can solve this problem by getting feedback not from MLE, but from the discriminator $D$ that can judge partial sequences that do not appear in a real data sample just as well as ones that do. However, there is a core problem in this approach: The training objective of the generator is the output of the discriminator, and the discriminator changes with the generator. This means the objective function of the generator is a moving target.
+
+When a model is converging, this means that the objective function gets better with time and leads to much better results than a fixed objective function. In practice it has turned out that it is very hard to get GAN to converge in high-dimensional discrete data sample spaces such as natural language. If the generated sequence is far away from a real sequence, there is no good positive feedback, and the continuously shifting objective function for the generator does not help the generator network converge at all.
+
+The MaliGAN paper proposed to ameliorate this situation by making the output of the discriminator network $D$ closer to a MLE response, in essence by following the method proposed by Google Brain in \cite{c24}. It stabilizes training by introducing a delayed generator network $G'$. While the normal generator $G$ is updated with the discriminator output continuously, $G'$ is only trained irregularly. This delayed network acts as a stabilizer for the objective function, leading to more stable training.
+
+Apart from this MLE-stabilized loss function, the network works similar to SeqGAN: It casts the problem of generating a discrete sequence as a reinforcement learning problem and uses the policy gradient method with the REINFORCE algorithm to update the parameters of the generator.
+
+\subsection{Architecture}
+For natural language generation, MaliGAN uses a single-layer gated recurrent unit (GRU) \cite{c26}.  A as discriminator, a single-layer, bi-directional GRU is used. The generator is pre-trained on the real sentences using teacher-forcing. 
+
+\subsection{Scenarios}
+The evaluation scenario closest to the natural language generation task uses the penn treebank dataset \cite{c25}. All sentences over 35 words are removed from the training set due to the large computational cost of Monte Carlo Tree search used in in MaliGAN. The best-performing model had  200 hidden neurons and 200 dimensions used for word embeddings.
+
+They report the sentence-level perplexity, the averaged perplexity of all generated sentences in comparison to the real sentences from the dataset. They compare with a baseline model, a GRU with the same settings as their generator, trained with simple MLE rather than adversarially.
+
+\subsection{Results}
+
+\begin{table}[h]
+\caption{MaliGAN performance on the Penn-Treebank dataset}
+\label{table:MaliGAN-result}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+& MLE & MaliGAN basic & MaliGAN full\\
+\hline
+Valid-perplexity & 141.9 & 131.6 & 128.0\\
+\hline
+Test-perplexity & 138.2 & 125.3 & 123.8\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+MaliGAN, as well as a less complex version trained without Monte-Carlo tree search called MaliGAN basic, were compared the the MLE-trained baseline model. The baseline model is identical to the generator except for the training objective. 
+
+Perplexity is a measure of comparing probability distributions, a lower perplexity value means the distributions are more similar. This means that even the simple MaliGAN basic model outperforms a simple recurrent approach trained with MLE, and a full model including Monte Carlo tree search as well as other variance-reducing measures again improves on this score. An overview of the results can be seen in table \ref{table:MaliGAN-result}.
+
+The MaliGAN paper does not give examples of generated natural language sentences, nor does it attempt any comparison to other GAN-based text generation methods.
+
+\section{PROTOTYPE}
+\subsection{Context}
+I was challenged to create a prototype of my own in the seminar "Chatbots and conversational agents". While there are some approaches at end to end deep learning systems that model complete conversations \cite{c27}, and even some that use adversarial techniques \cite{c28} \cite{c29}, I concluded that end to end text generation using generative adversarial networks is still in its infancy. Until the core problem of the differentiability of discrete sequence generation using GANs is solved, no practical efforts in actual dialogue generation are realistic. Thus, I decided to focus my effort on adversarial language generation in general, as a necessary first step in generating dialogue.
+
+The project was implemented in PyTorch \cite{c32}, I published the source code\footnote{https://github.com/maroth/word-embedding-wgan}. The source was heavily based on the PyTorch implementation of the advanced training for WGAN paper \cite{c21} by Marvin Cao\footnote{https://github.com/kuc2477/pytorch-wgan-gp} as well as the torchtext tutorial by Allen Nie\footnote{http://anie.me/On-Torchtext/}.
+
+\subsection{Contribution}
+Typically, words are encoded as one-hot vectors across the entire language vocabulary. This makes the vectors discrete and the vector space extremely sparse - each dimension is only used by a single word. This is often called the "curse of dimensionality". Within a GAN, if a generator generates word sequences encoded in such a way, the choice is non-differentiable as discussed above. And even if it were differentiable, changing a single word vector slightly according to its gradient would not have any chance of making the generated sentence slightly more realistic.
+
+An alternative way of encoding words are word embeddings (for example \cite{c31}), also known collectively under the term word2vec. Word embeddings map the one-hot encoded vectors to a new vector space with much fewer dimensions. In this embedding space, words that are semantically related have low distances to each other. One can then perform meaningful "word arithmetic" within the embedded vector space, such as the famous "king - man + woman = queen" or "paris – france + poland = warsaw" \cite{c32}. 
+
+In my prototype, I map real word sequences into a word embedding space. The generator then generates synthetic sequences within the same space. The discriminator tries to discriminate between the two. Since the embedded vector space is comparatively low-dimensional and continuous, the differentiability problem does not arise.
+
+Note that this also means that the discriminator does not operate on actual sentences. To generate synthetic output in the input space of natural language, the generator can generate synthetic sequences within the word embedding space. A nearest neighbor search within the embedding space is then used to generate sequences of tokens taken from the input data. It is important to state that this problem is only barely tractable, having the complexity of
+
+\begin{dmath}
+O(d * N)
+\end{dmath}
+
+where d is the the dimensionality of the embedding space and N is the number of words in the vocabulary. Using such a sequence generation procedure during training would be prohibitively slow. However, since it is only necessary to generate sequences in the input space to evaluate performance periodically during training, this works well in a prototype. For a production system that needs to generate sequences as part of a productive workload, optimizations like a k-d tree might be used.
+
+\subsection{Architecture}
+GloVe \cite{c30} is an unsupervised learning method for mapping words into a much lower-dimensional vector space. I used the pre-trained GloVe embedding vectors "glove.twitter.27B", which is trained on 2 billions tweets consisting of 27 billion tokens. For performance reasons, I chose the embedding space with 25 dimensions, even though I expect higher dimensionality to improve results.
+
+Both the generator and the discriminator are residual \cite{c32} convolutional networks using ReLU activations. They each consist of 10 residual layers each. Fully connected layers are used before and after the residual layers.
+
+The model is trained as a Wasserstein GAN following the improved training practices described in \cite{c21}. The model was optimized using ADAM \cite{c16} using exponential decay rates of $\beta_1 = 0.5$ and $\beta_2 = 0.9$ with a learning rate of $1e-4$, 10 discriminator iterations per generator iteration and a gradient penalty value $\lambda$ of 10. 
+
+Training 200000 iterations took around 12 hours on a GeForce GTX 1080. Learning progress was visualized with TensorBoard\footnote{https://www.tensorflow.org/programmers_guide/summaries_and_tensorboard}.
+
+\subsection{Results}
+As a dataset, I chose a collection of customer support Tweets posted on Kaggle \footnote{https://www.kaggle.com/thoughtvector/customer-support-on-twitter}. I filtered them to only use Tweets by AirAsia, ignoring conversational structure. This left me with 12829 real sequences. I made this choice because of the inherently related subject matter of all Tweets, as well as their short length.
+The tweets were tokenized using spaCy \footnote{https://spacy.io/api/tokenizer}, stripped of most inter-punctuation and then clipped to a length of exactly 10 tokens. 
+
+\begin{table}[h]
+\caption{Example sequences generated by my prototype}
+\label{table:prototype-result}
+\begin{center}
+\begin{tabular}{|c|}
+\hline
+sorry list us to to if there there will separate\\
+\hline
+we should hence have previous to not route when you\\
+\hline
+hi been kindly checkin ons to concern service the payment\\
+\hline
+one earlier of the payments availability advised stated stated .\\
+\hline
+sure mariya for and in the you for booking reply\\
+\hline
+hi credits or may see the availability their applicable departing\\
+\hline
+have and correct pertaining have to apply pre booking mean\\
+\hline
+great review assigned and one first this abhishek you relevant\\
+\hline
+better you as checkin checkin . m you for departure\\
+\hline
+see to have it they you to situation it you\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+   \begin{figure}[thpb]
+      \centering
+      \includegraphics[width=\linewidth]{images/js4.png}
+      \caption{4-gram Jensen-Shannon divergence over 200000 training iterations of the prototype. The 4-gram Jensen-Shannon divergence compares the statistical similarity of 4-grams between the ground truth and generated sequences. Lower is more similar. It can be seen that the learning of the prototype is stable but slow.}
+      \label{fig:prototype-js-divergence}
+   \end{figure}
+   
+      \begin{figure}[thpb]
+      \centering
+      \includegraphics[width=\linewidth]{images/w_dist.png}
+      \caption{The Wasserstein distance between generator and discriminator of the prototype training for 200000 iterations. The graph is smoothed significantly due to the limited number of generated sequences at each step, original values can be seen faintly. At 0, the discriminator is as likely to accept a synthetic sample as a real value. That it is converging to 0 means the model is slowly stabilizing, and that the discriminator is better than the generator.}
+      \label{fig:prototype-cost}
+   \end{figure}
+
+Only words occurring more than 15 times over the entire dataset were included in the dictionary, giving a dictionary size of 870. Of these, 67 were not represented in the pre-trained GloVe embeddings and were represented with the custom <UNK> token.
+
+As an evaluation metric, I generated n-grams of lengths 2, 3 and 4 of both the real input data as well as synthetic sequences found by using nearest-neighbor search within the GloVE embedding vector space for generator network output. I then used Jensen-Shannon divergence as a metric to compare the n-grams of the two groups. Jensen-Shannon divergence is based on Kullback-Leibler divergence, but is symmetric and bounded to values between 0 and 1. 0 means the two compared data sets have the same n-grams, while 1 means they share none. The development of the Jensen-Shannon divergence over 200'000 training epochs can be seen in figure \ref{fig:prototype-js-divergence}.
+
+The network is stable, as can be seen in figure \ref{fig:prototype-cost}. Example output of my network can be seen in table \ref{table:prototype-result}.
+
+\section{FUTURE WORK}
+All papers want to do further experiments with their method of choice. Due to the culture of arXiv preprints and the general extreme speed of progression of the deep learning research since the appearance of mature deep learning frameworks, affordable GPU and available datasets, much research is happening in parallel across different research teams. Applying GAN to text seems to be a topic of large interest, and it will be interesting to see how it progresses. 
+
+For my own prototype, it would be very interesting to try to use a RNN or LSTM as the generator, pre-train generator using MLE, and use multiple discriminators (linear, convolutional and recurrent) simultaneously. 
+
+\section{CONCLUSION}
+In this paper, methods that generate arbitrary text from a latent variable were discussion, and none of the methods even come close to successfully generating text that could fool a human observer. However, in the similar field of image captioning, GAN have been applied to generate image captions that are on a similar level as ones created by humans.
+
+It must therefore be concluded that end-to-end trained, fully unsupervised open-domain text generation using GAN is currently in the stages of very basic research, and the success of GAN in the image generation space is not foreseeable to occur in this space anytime soon.
+
+\section*{ACKNOWLEDGMENT}
+
+I would would like to thank Jacky Casas for his very helpful guidance and support during the writing of this paper, as well as for reviewing it and finding numerous typos.
+
+
+% An example of a floating figure using the graphicx package.
+% Note that \label must occur AFTER (or within) \caption.
+% For figures, \caption should occur after the \includegraphics.
+% Note that IEEEtran v1.7 and later has special internal code that
+% is designed to preserve the operation of \label within \caption
+% even when the captionsoff option is in effect. However, because
+% of issues like this, it may be the safest practice to put all your
+% \label just after \caption rather than within \caption{}.
+%
+% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
+% option should be used if it is desired that the figures are to be
+% displayed while in draft mode.
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2.5in]{myfigure}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+%\caption{Simulation Results}
+%\label{fig_sim}
+%\end{figure}
+
+% Note that IEEE typically puts floats only at the top, even when this
+% results in a large percentage of a column being occupied by floats.
+
+
+% An example of a double column floating figure using two subfigures.
+% (The subfig.sty package must be loaded for this to work.)
+% The subfigure \label commands are set within each subfloat command, the
+% \label for the overall figure must come after \caption.
+% \hfil must be used as a separator to get equal spacing.
+% The subfigure.sty package works much the same way, except \subfigure is
+% used instead of \subfloat.
+%
+%\begin{figure*}[!t]
+%\centerline{\subfloat[Case I]\includegraphics[width=2.5in]{subfigcase1}%
+%\label{fig_first_case}}
+%\hfil
+%\subfloat[Case II]{\includegraphics[width=2.5in]{subfigcase2}%
+%\label{fig_second_case}}}
+%\caption{Simulation results}
+%\label{fig_sim}
+%\end{figure*}
+%
+% Note that often IEEE papers with subfigures do not employ subfigure
+% captions (using the optional argument to \subfloat), but instead will
+% reference/describe all of them (a), (b), etc., within the main caption.
+
+
+% An example of a floating table. Note that, for IEEE style tables, the 
+% \caption command should come BEFORE the table. Table text will default to
+% \footnotesize as IEEE normally uses this smaller font for tables.
+% The \label must come after \caption as always.
+%
+%\begin{table}[!t]
+%% increase table row spacing, adjust to taste
+%\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+%\caption{An Example of a Table}
+%\label{table_example}
+%\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+%\begin{tabular}{|c||c|}
+%\hline
+%One & Two\\
+%\hline
+%Three & Four\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+% Note that IEEE does not put floats in the very first column - or typically
+% anywhere on the first page for that matter. Also, in-text middle ("here")
+% positioning is not used. Most IEEE journals/conferences use top floats
+% exclusively. Note that, LaTeX2e, unlike IEEE journals/conferences, places
+% footnotes above bottom floats. This can be corrected via the \fnbelowfloat
+% command of the stfloats package.
+
+% conference papers do not normally have an appendix
+
+
+% use section* for acknowledgement
+
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+\begin{thebibliography}{99}
+\bibitem{c1} Huszar, F. 2015. How (not) to train your generative model: Scheduled sampling, likelihood, adversary? \textit{arXiv preprint arXiv:1511.05101}.
+\bibitem{c2} Goodfellow, I. et al. 2014. Generative Adversarial Nets \textit{Advances in Neural Information Processing Systems. pages 2672 to 2680}.
+\bibitem{c3} Goodfellow, I. and Bengio, Y. and Courville, A. 2016. Deep Learning. \textit{MIT Press, http://www.deeplearningbook.org}.
+\bibitem{c4} Hjelm, R and Jacob A. 2017. \textit{arXiv preprint arXiv:1702.07983}.
+\bibitem{c5} Mikolov, T., Chen, K., Corrado, G., and Dean, J. 2013. Efficient Estimation of Word Representations in Vector Space \textit{ICLR}.
+\bibitem{c6} Abadi, M. et al. 2015. TensorFlow: Large-scale machine learning on heterogeneous systems. \textit{https://www.tensorflow.org/}.
+\bibitem{c7} Yu, L., Zhang, W., Wang, J. and Yu, Y. 2017. SeqGAN: Sequence Generative Adversarial Nets with Policy Gradient. \textit{AAAI-17}.
+\bibitem{c8} Sutton, R. S., McAllester, D. A., Singh, S. P.,
+Mansour, Y. et al. 1999. Policy gradient methods for reinforcement
+learning with function approximation. \textit{NIPS, 1057–1063}.
+\bibitem{c9} Hochreiter, S., and Schmidhuber,
+J. 1997. Long short-term memory. \textit{Neural computation
+9(8):1735–1780}.
+\bibitem{c10} Kim, Y. 2014. Convolutional neural networks for sentence
+classification. \textit{arXiv:1408.5882}.
+\bibitem{c11} Papineni, K., Roukos, S., Ward, T. and Zhu,
+W.-J. 2002. Bleu: a method for automatic evaluation of machine
+translation. \textit{ACL, 311–318}.
+\bibitem{c12} Bengio, S., Vinyals, O., Jaitly, N. and Shazeer,
+N. 2015. Scheduled sampling for sequence prediction with recurrent
+neural networks. \textit{NIPS, 1171–1179}.
+\bibitem{c13} Kusner, M. and Hernndez-Lobato, Js. 2016. GANs for sequences of discrete elements with the Gumbel-softmax
+distribution. \textit{arXiv preprint arXiv:1611.04051}.
+\bibitem{c14} Jang, E., Gu, S. and Poole, B. 2016. Categorical reparameterization with gumbel-softmax. \textit{arXiv preprint arXiv:1611.01144}.
+\bibitem{c15} Gumbel, E. J. 1954. Statistical theory of extreme values and some practical applications: a series of lectures. \textit{Number 33. US Govt. Print. Office}.
+\bibitem{c16} Kingma, D. and Ba, J. 2014. Adam: A method for stochastic optimization. \textit{arXiv preprint arXiv:1412.6980}.
+\bibitem{c17} Hjelm, R. D., Jacob, A. P., Che, T., Cho, K. and Bengio, Y. 2017. Boundary-seeking generative adversarial networks. \textit{arXiv preprint arXiv:1702.08431}.
+\bibitem{c18} Dieleman S. et al. 2015. Lasagne: First release. \textit{http://dx.doi.org/10.5281/zenodo.27878}.
+\bibitem{c19} Theano Development Team. 2016. Theano: A Python framework for fast computation of mathematical expressions. \textit{http://arxiv.org/abs/1605.02688}.
+\bibitem{c20} Ciprian, C. et al. 2013. One billion word benchmark for measuring progress in statistical language modeling. \textit{arXiv preprint arXiv:1312.3005}.
+\bibitem{c21} Gulrajani, I., Ahmed, F., Arjovsky, M., Dumoulin, V., and Courville, A. 2017. Improved training of wasserstein GANs. \textit{arXiv preprint arXiv:1704.00028}.
+\bibitem{c22} Ioffe, S. and Szegedy, C. 2015. Batch normalization: Accelerating deep network training by reducing internal covariate shift. \textit{arXiv preprint arXiv:1502.03167}.
+\bibitem{c23} Che, T., Li, Y., Zhang, R., Hjelm, R.D., Li, W., Song, Y. and Bengio, Y. 2017. Maximum-Likelihood Augmented Discrete Generative Adversarial Networks. \textit{arXiv preprint arXiv:1702.07983}.
+\bibitem{c24} Norouzi, M., Bengio, S., Chen, Z., Jaitly, N., Schuster, M., Wu, Y., and Schuurmans, D. 2017. Reward Augmented Maximum Likelihood for Neural Structured Prediction. \textit{NIPS 2016}.
+\bibitem{c25} Marcus, M. P., Marcinkiewicz, M. A. and Santorini, B. 1993. Building a large annotated corpus of english: The penn treebank. \textit{Computational linguistics, 19(2):313–330}.
+\bibitem{c26} Cho, K., Van Merrienboer, B., Bahdanau, D., and Bengio, Y. 2014. On the properties of neural machine translation: Encoder-decoder approaches.
+\textit{arXiv preprint arXiv:1409.1259}.
+\bibitem{c27} Serban, I. V. et al. 2017. A Deep Reinforcement Learning Chatbot. \textit{arXiv prepint arXiv:1709.02349}.
+\bibitem{c28} Ludwig, O. 2018. End-to-end Adversarial Learning for Generative Conversational Agents. \textit{arXiv preprint arXiv:1711.10122}.
+\bibitem{c29} Li, J. et. al. 2017. Adversarial Learning for Neural Dialogue Generation. \textit{arXiv preprint arXiv:1701.06547}.
+\bibitem{c30} Pennington, J., Socher, R., and Manning, C.D. 2014. GloVe: Global Vectors for Word Representation. \textit{Empirical Methods in Natural Language Processing (EMNLP)}.
+\bibitem{c31} Bengio Y. 2006. Neural Probabilistic Language Models. \textit{Innovations in Machine Learning. Studies in Fuzziness and Soft Computing, vol 194}.
+\bibitem{c32} Vylomova, E., Rimell, L., Cohn, T., Baldwin, T. 2018. Take and Took, Gaggle and Goose, Book and Read: Evaluating the Utility of Vector Differences for Lexical Relation Learning. \textit{arXiv preprint arXiv:1509.01692}.
+\bibitem{c33} He, K., Zhang, X., Ren, S., Sun, J. 2015. Deep Residual Learning for Image Recognition. \textit{arXiv preprint arXiv:1512.03385}.
+\bibitem{c34} Paszke, A., Gross, S., Chintala, S., Chanan, G., Yang, E., DeVito, Z., Lin, Z., Desmaison, A., Antiga, L. and Lerer, A. 2017. Automatic differentiation in PyTorch. \textit{NIPS 2017 Workshop paper}.
+\bibitem{c35} Karras, T., Aila, T., Laine, S., Lehtinen, J. 2017. Progressive Growing of GANs for Improved Quality, Stability, and Variation. \textit{arXiv preprint arXiv:1710.10196}.
+
+\end{thebibliography}
+
+
+
+
+% that's all folks
+\end{document}
+
+
